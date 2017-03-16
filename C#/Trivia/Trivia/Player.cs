@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Trivia
 {
-    internal class Player
+    public class Player
     {
         public Player(string name)
         {

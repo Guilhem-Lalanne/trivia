@@ -18,9 +18,9 @@ namespace Trivia
             {
                 Game aGame = new Game();
 
-                aGame.add("Chet");
-                aGame.add("Pat");
-                aGame.add("Sue");
+                aGame.AddPlayer(new Player("Chet"));
+                aGame.AddPlayer(new Player("Pat"));
+                aGame.AddPlayer(new Player("Sue"));
 
                 Random rand = new Random(i);
 
@@ -39,6 +39,9 @@ namespace Trivia
                     }
 
                 } while (notAWinner);
+
+                // Adding winner :
+
 
             }
 
