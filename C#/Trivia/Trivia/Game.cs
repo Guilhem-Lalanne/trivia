@@ -46,6 +46,7 @@ namespace UglyTrivia
         }
 
         public bool add(String playerName)
+            // TODO : prendre un id de player en paramètre, PAS un nom
         {
 
 
