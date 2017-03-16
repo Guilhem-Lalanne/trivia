@@ -40,8 +40,8 @@ namespace Trivia
 
                 } while (notAWinner);
 
-                // Adding winner :
-
+                // Adding end of game (for verification purposes in GoldenMaster :
+                Console.WriteLine("\nEND OF GAME\n");
 
             }
 
