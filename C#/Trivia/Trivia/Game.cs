@@ -29,17 +29,21 @@ namespace Trivia
 
             if (_players.Current.InPenaltyBox)
             {
+                // Si roll impair
                 if (roll % 2 != 0)
                 {
+                    // Sort de pénalité
                     isGettingOutOfPenaltyBox = true;
 
                     Console.WriteLine(_players.Current.Name + " is getting out of the penalty box");
+                    // Déplacement du joueur courant
                     _players.Current.Move(roll);
 
                     Console.WriteLine(_players.Current.Name
                             + "'s new location is "
                             + _players.Current.Place);
                    
+                    // On lui pose une question
                     _questions.AskQuestion(_players.Current.Place);
                 }
                 else
@@ -51,11 +55,14 @@ namespace Trivia
             }
             else
             {
+                // Déplacement du joueur courant
                 _players.Current.Move(roll);
 
                 Console.WriteLine(_players.Current.Name
                         + "'s new location is "
                         + _players.Current.Place);
+
+                // On lui pose une question
                 _questions.AskQuestion(_players.Current.Place);
             }
 
@@ -66,17 +73,21 @@ namespace Trivia
             bool winner;
             if (_players.Current.InPenaltyBox)
             {
+                // Sort de pénalité
                 if (isGettingOutOfPenaltyBox)
                 {
                     Console.WriteLine("Answer was correct!!!!");
                     _players.Current.WinAGoldCoin();
 
+                    // Gagne 
                     winner = _players.Current.IsWinner();
+                    // Passage au joueur suivant
                     _players.NextPlayer();
 
                     return winner;
                 }
 
+                // Passage au joueur suivant
                 _players.NextPlayer();
                 return false;
             }
@@ -84,6 +95,7 @@ namespace Trivia
             Console.WriteLine("Answer was corrent!!!!");
             _players.Current.WinAGoldCoin();
 
+            // NB : winner = true si GoldCoins == 6
             winner = _players.Current.IsWinner();
             _players.NextPlayer();
 

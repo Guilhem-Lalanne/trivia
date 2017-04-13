@@ -26,8 +26,10 @@ namespace Trivia
             }
         }
 
+        // Question dépendant de la place
         public void AskQuestion(int currentPlayerPlace)
         {
+            // Détermniation de la catgorie, en fonction de la place
             Console.WriteLine("The category is " + CurrentCategory(currentPlayerPlace));
 
             if (CurrentCategory(currentPlayerPlace) == "Pop")

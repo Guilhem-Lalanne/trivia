@@ -21,8 +21,10 @@ namespace Trivia
 
                 do
                 {
+                    // Roll d'un D6
                     aGame.Roll(rand.Next(5) + 1);
 
+                    // Réponse à la question posée dans Roll()
                     if (rand.Next(9) == 7)
                     {
                         winner = aGame.WrongAnswer();

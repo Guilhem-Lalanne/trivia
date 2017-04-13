@@ -24,6 +24,7 @@ namespace Trivia
         public void Move(int roll)
         {
             Place += roll;
+            // Si dépasse 11, retour case départ
             if (Place > 11) Place -= 12;
         }
 
@@ -40,6 +41,7 @@ namespace Trivia
 
         public bool IsWinner()
         {
+            // Retourne true si 6 GoldCoins
             return GoldCoins == 6;
         }
     }
