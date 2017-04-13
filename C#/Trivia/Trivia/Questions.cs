@@ -8,7 +8,7 @@ namespace Trivia
 {
     class Questions
     {
-        private readonly Dictionary<int, string> _categories = new Dictionary<int, string>() { { 0, "Pop" }, { 1, "Science" }, { 2, "Sports" }, { 3, "Rock" } };
+        private readonly Categories _categories = new Categories();
 
         LinkedList<string> popQuestions = new LinkedList<string>();
         LinkedList<string> scienceQuestions = new LinkedList<string>();
@@ -30,34 +30,29 @@ namespace Trivia
         public void AskQuestion(int currentPlayerPlace)
         {
             // Détermniation de la catgorie, en fonction de la place
-            Console.WriteLine("The category is " + CurrentCategory(currentPlayerPlace));
+            Console.WriteLine("The category is " + _categories.CurrentCategory(currentPlayerPlace));
 
-            if (CurrentCategory(currentPlayerPlace) == "Pop")
+            if (_categories.CurrentCategory(currentPlayerPlace) == "Pop")
             {
                 Console.WriteLine(popQuestions.First());
                 popQuestions.RemoveFirst();
             }
-            if (CurrentCategory(currentPlayerPlace) == "Science")
+            if (_categories.CurrentCategory(currentPlayerPlace) == "Science")
             {
                 Console.WriteLine(scienceQuestions.First());
                 scienceQuestions.RemoveFirst();
             }
-            if (CurrentCategory(currentPlayerPlace) == "Sports")
+            if (_categories.CurrentCategory(currentPlayerPlace) == "Sports")
             {
                 Console.WriteLine(sportsQuestions.First());
                 sportsQuestions.RemoveFirst();
             }
-            if (CurrentCategory(currentPlayerPlace) == "Rock")
+            if (_categories.CurrentCategory(currentPlayerPlace) == "Rock")
             {
                 Console.WriteLine(rockQuestions.First());
                 rockQuestions.RemoveFirst();
             }
         }
 
-
-        private string CurrentCategory(int currentPlayerPlace)
-        {
-            return _categories[currentPlayerPlace % 4];
-        }
     }
 }
